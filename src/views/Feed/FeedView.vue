@@ -3,7 +3,6 @@ import { useNavStore, pagesEnum } from "@/stores/navStore";
 import FeedTaskReporter from "@/components/FeedItem/FeedTaskReporter.vue";
 import { onMounted, reactive } from "vue";
 
-const { changeCurrent } = useNavStore();
 // mock report data from server
 const reports = reactive({
   repairJob: 0,
@@ -12,6 +11,8 @@ const reports = reactive({
 });
 
 onMounted(() => {
+  const { changeCurrent } = useNavStore();
+  // change page state on nav
   changeCurrent(pagesEnum.other);
 });
 </script>

@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, reactive } from "vue";
-import { useNavStore, pagesEnum } from "../stores/navStore";
-const { changeCurrent } = useNavStore();
+import { useNavStore, pagesEnum } from "@/stores/navStore";
 
 const slots = reactive([
   {
@@ -19,6 +18,8 @@ const slots = reactive([
 ]);
 
 onMounted(() => {
+  const { changeCurrent } = useNavStore();
+  // change page state on nav.
   changeCurrent(pagesEnum.request);
 });
 </script>

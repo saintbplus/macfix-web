@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import FeedView from "@/views/FeedView.vue";
-import RequestView from "@/views/RequestView.vue";
-import HistoryView from "@/views/HistoryView.vue";
+import FeedView from "@/views/Feed/FeedView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +7,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("@/views/Home/HomeView.vue"),
     },
     {
       path: "/feed",
@@ -20,22 +17,22 @@ const router = createRouter({
     {
       path: "/request",
       name: "request",
-      component: RequestView,
+      component: () => import("@/views/Request/RequestView.vue"), // lazy loading page
     },
     {
       path: "/pending-request",
       name: "pending",
-      component: () => import("@/views/PendingJobView.vue"), // lazy loading page
+      component: () => import("@/views/PendingJob/PendingJobView.vue"), // lazy loading page
     },
     {
       path: "/status",
       name: "jobStatus",
-      component: () => import("@/views/StatusView.vue"), // lazy loading page
+      component: () => import("@/views/Status/StatusView.vue"), // lazy loading page
     },
     {
       path: "/history",
       name: "jobHistory",
-      component: HistoryView,
+      component: () => import("@/views/History/HistoryView.vue"), // lazy loading
     },
   ],
 });

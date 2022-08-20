@@ -2,9 +2,9 @@
 import { onMounted } from "vue";
 import { useNavStore, pagesEnum } from "@/stores/navStore";
 
-const { changeCurrent } = useNavStore();
-
 onMounted(() => {
+  const { changeCurrent } = useNavStore();
+  // change page state on nav.
   changeCurrent(pagesEnum.status);
 });
 </script>
