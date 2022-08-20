@@ -4,25 +4,24 @@ const props = defineProps({
     reqired: true,
     type: String,
   },
-  tasksNum: Number,
+  status: String,
   // to: String, // link to page.
 });
 </script>
 
 <template>
-  <div class="task-report">
+  <div class="status-report">
     <p class="title">{{ props.title }}</p>
     <div class="status-bar">
       <p>
-        <span>{{ props.tasksNum }}</span>
-        <span>: งาน</span>
+        <span>{{ props.status }}</span>
       </p>
     </div>
   </div>
 </template>
 
 <style scoped>
-.task-report {
+.status-report {
   width: 100%;
   display: flex;
   flex-direction: column;

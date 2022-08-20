@@ -1,6 +1,6 @@
 <script setup>
 import { useNavStore, pagesEnum } from "@/stores/navStore";
-import FeedTaskReporter from "@/components/FeedItem/FeedTaskReporter.vue";
+import StatusBar from "@/components/StatusReporter/StatusBar.vue";
 import { onMounted, reactive } from "vue";
 
 // mock report data from server
@@ -30,11 +30,11 @@ onMounted(() => {
         <button>User</button>
       </div>
     </div>
-    <FeedTaskReporter title="รายการรอส่งซ่อม" :tasksNum="reports.jobPending" />
-    <FeedTaskReporter title="สถานะการซ่อม" :tasksNum="reports.repairJob" />
-    <FeedTaskReporter
+    <StatusBar title="รายการรอส่งซ่อม" :status="reports.jobPending + ' งาน'" />
+    <StatusBar title="สถานะการซ่อม" :status="reports.repairJob + ' งาน'" />
+    <StatusBar
       title="ข้อมูลการส่งซ่อมในอดีต"
-      :tasksNum="reports.history"
+      :status="reports.history + ' งาน'"
     />
     <div class="bottom">
       <button>คุยกับช่าง</button>
