@@ -36,13 +36,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1 class="page-title">History View</h1>
+  <h1 class="page-title">History รายการซ่อม</h1>
   <ListSkeleLoad v-if="state.isLoading" />
-  <WorkList v-else :items="state.historyList" />
+  <div v-else>
+    <div class="list-info">
+      <p class="list-title">รายการ</p>
+    </div>
+    <WorkList :items="state.historyList" />
+  </div>
 </template>
 
 <style scoped>
 .page-title {
   margin-bottom: 1rem;
+}
+.list-info {
+  display: flex;
+  justify-content: flex-start;
 }
 </style>

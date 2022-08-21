@@ -3,7 +3,7 @@ export const historyDataList = [
   {
     id: "1a",
     device: "iphone 13 pro",
-    brefDetail: "screen broke",
+    briefDetail: "screen broke",
     solution: "change new screen",
     cost: 1570,
     requestDate: new Date().getDate() - 2,
@@ -15,7 +15,7 @@ export const historyDataList = [
   {
     id: "2a",
     device: "mac book air apple silicon",
-    brefDetail: "battery flat",
+    briefDetail: "battery flat",
     solution: "change new battery",
     cost: 2200,
     requestDate: new Date().getDate() - 2,
