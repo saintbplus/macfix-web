@@ -63,7 +63,7 @@ onMounted(() => {
 <style scoped>
 .problem-input {
   width: 100%;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 0.8rem;
   font-size: 1.02rem;
   resize: none;
   height: 6.1rem;
