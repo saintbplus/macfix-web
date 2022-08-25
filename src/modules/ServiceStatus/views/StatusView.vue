@@ -3,7 +3,7 @@ import { onMounted, reactive } from "vue";
 import { useNavStore, pagesEnum } from "@/stores/navStore";
 import StatusBar from "@/components/StatusReporter/StatusBar.vue";
 import StatusReportLoad from "@/components/SkeletonLoad/StatusReportLoad.vue";
-import { statusData } from "./data";
+import { statusData } from "../data";
 
 const state = reactive({
   isLoading: true,

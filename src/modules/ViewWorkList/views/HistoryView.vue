@@ -2,9 +2,9 @@
 import { onMounted, reactive } from "vue";
 import { useNavStore, pagesEnum } from "@/stores/navStore";
 import ListSkeleLoad from "@/components/SkeletonLoad/ListSkeleLoad.vue";
-import WorkList from "@/components/WorkList/WorkList.vue";
+import WorkList from "../components/WorkList/WorkList.vue";
 // test data
-import { historyDataList } from "./data";
+import { historyDataList } from "../data/historyData";
 
 const state = reactive({
   isLoading: true,

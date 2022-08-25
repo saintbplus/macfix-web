@@ -25,18 +25,13 @@ export const navPages = [
   },
   {
     n: 2,
-    text: "รายการรอส่งซ่อม",
-    link: "/pending-request",
+    text: "รายการส่งซ่อม",
+    link: "/list",
   },
   {
     n: 3,
     text: "สถานะการซ่อม",
     link: "/status",
-  },
-  {
-    n: 4,
-    text: "ข้อมูลการส่งซ่อมในอดีต",
-    link: "/history",
   },
 ];
 

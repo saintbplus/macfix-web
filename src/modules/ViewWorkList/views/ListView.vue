@@ -2,8 +2,8 @@
 import { onMounted, reactive } from "vue";
 import { useNavStore, pagesEnum } from "@/stores/navStore";
 import ListSkeleLoad from "@/components/SkeletonLoad/ListSkeleLoad.vue";
-import WorkList from "@/components/WorkList/WorkList.vue";
-import { jobsData } from "./data";
+import WorkList from "../components/WorkList/WorkList.vue";
+import { jobsData } from "../data/listData";
 
 const state = reactive({
   pendingList: [],
