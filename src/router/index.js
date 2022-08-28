@@ -3,6 +3,7 @@ import feed from "@/modules/Feeds";
 import list from "@/modules/ViewWorkList";
 import request from "@/modules/RequestOrder";
 import status from "@/modules/ServiceStatus";
+import auth from "@/modules/Authentication";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +16,13 @@ const router = createRouter({
   ],
 });
 
-const routerRegister = [feed.route, list.route, request.route, status.route];
+const routerRegister = [
+  feed.route,
+  list.route,
+  request.route,
+  status.route,
+  auth.route,
+];
 
 routerRegister.forEach((route) => {
   router.addRoute(route);
