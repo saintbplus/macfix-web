@@ -27,6 +27,9 @@ onMounted(() => {
   const { changeCurrent } = useNavStore();
   changeCurrent(pagesEnum.pendingList);
 });
+const greet = (event) => {
+  console.log(event.target.value);
+};
 </script>
 
 <template>

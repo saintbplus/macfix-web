@@ -1,4 +1,4 @@
-import FeedView from "./Views/FeedView.vue";
+import FeedView from "./views/FeedView.vue";
 
 export default {
   path: "/feed",

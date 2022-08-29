@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from "vue-router";
+import auth from "@/modules/Authentication";
 import feed from "@/modules/Feeds";
-import list from "@/modules/ViewWorkList";
 import request from "@/modules/RequestOrder";
 import status from "@/modules/ServiceStatus";
-import auth from "@/modules/Authentication";
+import list from "@/modules/ViewWorkList";
+import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
