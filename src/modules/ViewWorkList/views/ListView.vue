@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, computed } from "vue";
 import { useNavStore, pagesEnum } from "@/stores/navStore";
 import ListSkeleLoad from "@/components/SkeletonLoad/ListSkeleLoad.vue";
 import WorkList from "../components/WorkList/WorkList.vue";
+import WorkAmount from "../components/WorkAmount/WorkAmount.vue";
 import { jobsData } from "../data/listData";
 
 const state = reactive({
@@ -27,9 +28,9 @@ onMounted(() => {
   const { changeCurrent } = useNavStore();
   changeCurrent(pagesEnum.pendingList);
 });
-const greet = (event) => {
-  console.log(event.target.value);
-};
+const amountOfWork = computed(() => {
+  return state.pendingList.length;
+});
 </script>
 
 <template>
@@ -37,6 +38,7 @@ const greet = (event) => {
     <h1 class="page-title">รายการรอส่งซ่อม</h1>
     <ListSkeleLoad v-if="state.isLoading" />
     <div v-else>
+      <WorkAmount :amount="amountOfWork" />
       <div class="list-info">
         <p class="list-title">รายการ</p>
       </div>
