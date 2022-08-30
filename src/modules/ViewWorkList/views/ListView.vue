@@ -5,7 +5,7 @@ import ListSkeleLoad from "@/components/SkeletonLoad/ListSkeleLoad.vue";
 import WorkList from "../components/WorkList/WorkList.vue";
 import WorkAmount from "../components/WorkAmount/WorkAmount.vue";
 import { jobsData } from "../data/listData";
-
+import { quickSort } from "../quickSort.js";
 const state = reactive({
   pendingList: [],
   isLoading: true,
@@ -31,6 +31,13 @@ onMounted(() => {
 const amountOfWork = computed(() => {
   return state.pendingList.length;
 });
+const categorizeWork = computed(() => {
+  state.pendingList = quickSort(
+    state.pendingList,
+    0,
+    state.pendingList.length - 1
+  );
+});
 </script>
 
 <template>
@@ -39,6 +46,13 @@ const amountOfWork = computed(() => {
     <ListSkeleLoad v-if="state.isLoading" />
     <div v-else>
       <WorkAmount :amount="amountOfWork" />
+      <div>
+        <label for="cars">ใช้ตัวกรอง:</label>
+        <select>
+          <option value="" selected disabled hidden>เลือก filter</option>
+          <option @click="categorizeWork">ราคา(ต่ำ-สูง)</option>
+        </select>
+      </div>
       <div class="list-info">
         <p class="list-title">รายการ</p>
       </div>
