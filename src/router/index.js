@@ -25,7 +25,13 @@ const routerRegister = [
 ];
 
 routerRegister.forEach((route) => {
-  router.addRoute(route);
+  if (Array.isArray(route)) {
+    route.forEach((subRoute) => {
+      router.addRoute(subRoute);
+    });
+  } else {
+    router.addRoute(route);
+  }
 });
 
 export default router;
