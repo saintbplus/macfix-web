@@ -6,6 +6,7 @@ import WorkList from "../components/WorkList/WorkList.vue";
 import WorkAmount from "../components/WorkAmount/WorkAmount.vue";
 import { jobsData } from "../data/listData";
 import { quickSort } from "../quickSort.js";
+import { categorize } from "../categorize.js";
 const state = reactive({
   pendingList: [],
   isLoading: true,
@@ -17,6 +18,7 @@ const mockLoad = (timeMs) => {
       id: job.id,
       title: job.device,
       date: job.requestDate,
+      status: job.status,
     }));
     state.isLoading = false;
   }, timeMs);
@@ -29,7 +31,7 @@ onMounted(() => {
   changeCurrent(pagesEnum.pendingList);
 });
 const amountOfWork = computed(() => {
-  return state.pendingList.length;
+  return categorize(state.pendingList);
 });
 const categorizeWork = computed(() => {
   state.pendingList = quickSort(
@@ -45,7 +47,7 @@ const categorizeWork = computed(() => {
     <h1 class="page-title">รายการรอส่งซ่อม</h1>
     <ListSkeleLoad v-if="state.isLoading" />
     <div v-else>
-      <WorkAmount :amount="amountOfWork" />
+      <WorkAmount :item="amountOfWork" />
       <div>
         <label for="cars">ใช้ตัวกรอง:</label>
         <select>
